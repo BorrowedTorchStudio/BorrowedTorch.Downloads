@@ -4,6 +4,9 @@ A small Windows app that packs the four single-channel maps of a PBR material in
 occlusion, **G** = roughness, **B** = metallic, **A** = height - and saves it as a PNG. For texture packs that ship
 those maps separately, and for projects that want packed PNGs rather than packing in a content build.
 
+It also packs an **albedo with its opacity**: the colour in RGB, the opacity in A, so a material that reads its
+opacity from the albedo's alpha gets both from one texture - see [Albedo + opacity](#albedo--opacity).
+
 It packs with [BorrowedTorch.Ormh](https://www.nuget.org/packages/BorrowedTorch.Ormh), the same code
 [BorrowedTorch.ContentPipeline](https://www.nuget.org/packages/BorrowedTorch.ContentPipeline) builds with, so a map
 packed here is byte for byte the map a content build makes from the same sources.
@@ -81,6 +84,31 @@ alpha is not transparency here.
 
 **Save PNG…** suggests a name from what the sources share - `Rock_AO.png` and `Rock_Roughness.png` give
 `Rock_ORMH.png` - in the folder of the first one.
+
+## Albedo + opacity
+
+Choose **Albedo + opacity** under **Pack** at the top. The window then has two cards; each mode keeps its own, so
+switching back and forth loses nothing.
+
+| Card             | Takes                                                                               |
+|------------------|-------------------------------------------------------------------------------------|
+| **RGB** · Albedo | An image's red, green and blue, as they are. Always an image.                       |
+| **A** · Opacity  | Any channel of an image, optionally inverted, or a constant - starting at 1, solid. |
+
+Dropped files are sorted by name, ignoring case:
+
+| The name contains                            | It goes to        |
+|----------------------------------------------|-------------------|
+| `opacity`, `alpha`, `mask`, `cutout`         | Opacity           |
+| `transparen`                                 | Opacity, inverted |
+| `albedo`, `diff`, `colo`, or `col` as a word | Albedo            |
+
+An albedo that already carries its opacity in its own alpha can go on both cards, with **Read** set to **A** on the
+opacity one. **Save PNG…** suggests `<shared name>_AlbedoOpacity.png`.
+
+The alpha is opacity, straight - not premultiplied. Build the PNG with `PremultiplyAlpha=False`, or the colour is
+darkened wherever the surface is see-through. Colour profiles are ignored here as for any map, so an albedo is packed
+with the values it was saved with; the engine's shaders decode its sRGB themselves.
 
 ## The command line
 

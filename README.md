@@ -6,12 +6,12 @@ guides; their source is kept elsewhere. The newest version of each is also on
 
 | Tool | What it does | Runs on | |
 |------|--------------|---------|-|
+| **Kindling Engine Editor** | The editor of Kindling, Borrowed Torch's game engine: a scene lit, ray-traced and shown as the engine draws it, with editors for its shaders and game UI. An early build: scenes are not saved yet. | 64-bit Windows, .NET 10 Desktop Runtime | [Guide](KindlingEngineEditor/README.md) · [Releases](https://github.com/BorrowedTorchStudio/BorrowedTorch.Downloads/releases?q=kindling-engine-editor) |
 | **ORMH Converter** | Packs the ambient occlusion, roughness, metallic and height maps of a PBR material into one RGBA texture and saves it as a PNG. Packs an albedo with its opacity, too. | 64-bit Windows, nothing to install | [Guide](OrmhConverter/README.md) · [Releases](https://github.com/BorrowedTorchStudio/BorrowedTorch.Downloads/releases?q=ormh-converter) |
 | **Localization Helper** | Keeps a game's translations in order: its languages, the folders and JSON files the texts are split into, the string IDs, and the text of every ID in every language, with the reference language beside the one being written. | 64-bit Windows, nothing to install | [Guide](LocalizationHelper/README.md) · [Releases](https://github.com/BorrowedTorchStudio/BorrowedTorch.Downloads/releases?q=localization-helper) |
-| **Kindling Engine Editor** | The editor of Kindling, Borrowed Torch's game engine: a scene lit, ray-traced and shown as the engine draws it, with editors for its shaders and game UI. An early build: scenes are not saved yet. | 64-bit Windows, .NET 10 Desktop Runtime | [Guide](KindlingEngineEditor/README.md) · [Releases](https://github.com/BorrowedTorchStudio/BorrowedTorch.Downloads/releases?q=kindling-engine-editor) |
 
-Each tool's releases are tagged with its name: `ormh-converter-v1.0.1`, `localization-helper-v1.1.0`,
-`kindling-engine-editor-v0.0.1`.
+Each tool's releases are tagged with its name: `kindling-engine-editor-v0.0.1`, `ormh-converter-v1.0.1`,
+`localization-helper-v1.1.0`.
 
 ## Checking a download
 
